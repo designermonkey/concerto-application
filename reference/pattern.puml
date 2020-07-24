@@ -1,0 +1,62 @@
+@startuml
+
+skinparam classBackgroundColor white
+skinparam classArrowColor black
+skinparam classBorderColor black
+skinparam packageStyle rectangle
+
+
+package "Application Layer" <<Folder>>
+{
+    interface InputBoundary
+    abstract class Model
+    class Models
+    class Notification
+    class Notifications
+    interface OutputBoundary
+    class ResponsePayload
+    class Status
+
+    InputBoundary : void execute(Model, OutputBoundary)
+    OutputBoundary : void present(ResponsePayload)
+
+    InputBoundary ..> Model
+    OutputBoundary ..> ResponsePayload
+
+    ResponsePayload --* Model
+}
+
+package "Use Cases" <<Folder>>
+{
+    class MyUseCase
+    class MyRequestModel
+    class MyResponseModel
+
+    MyRequestModel ..|> Model
+    MyResponseModel ..|> Model
+
+    MyUseCase ..|> InputBoundary
+    MyUseCase ..> OutputBoundary
+    MyUseCase ..> ResponsePayload
+
+    MyUseCase ..> MyResponseModel : creates
+}
+
+package "Delivery Layer" <<Folder>>
+{
+    class MyController
+    class MyPresenter
+
+    MyController ..> InputBoundary
+    MyPresenter ..|> OutputBoundary
+
+    MyController ..> MyRequestModel : creates
+}
+
+
+"Delivery Layer" -[hidden]right-> "Application Layer"
+"Application Layer" -[hidden]right-> "Use Cases"
+
+
+
+@enduml
