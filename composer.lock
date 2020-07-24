@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37e1eeda37c3077bc1a7d42b31655995",
+    "content-hash": "162d2da090f5d19df31b1e144ea86d12",
     "packages": [
         {
             "name": "jorpo/enum",

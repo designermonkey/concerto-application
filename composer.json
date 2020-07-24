@@ -1,5 +1,5 @@
 {
-    "name": "concerto/application",
+    "name": "jorpo/concerto-application",
     "description": "Application boundary pattern",
     "type": "concerto-library",
     "license": "GNU GPLv3",
