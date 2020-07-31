@@ -12,16 +12,6 @@
     "config": {
         "bin-dir": "bin"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:jorpo-co/object-access.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:jorpo-co/enum.git"
-        }
-    ],
     "require": {
         "php": "^7.4",
         "php-ds/php-ds": "^1.2",
