@@ -2,65 +2,33 @@
 
 namespace Jorpo\Concerto\Application;
 
+use Iterator;
+use IteratorAggregate;
+use IteratorIterator;
 use Jorpo\Concerto\Application\Status;
 use Jorpo\ObjectAccess\ImmutableObjectAccessTrait;
 
-/**
- * The properties of a response payload work in tandem with the status, which tells
- * us which property to access.
- *
- * @psalm-suppress PropertyNotSetInConstructor
- */
-class ResponsePayload
+class ResponsePayload implements IteratorAggregate
 {
     use ImmutableObjectAccessTrait;
     
     protected Status $status;
-
-    protected Model $created;
-    protected Model $notCreated;
-
-    protected Model $found;
-    protected Model $notFound;
-
-    protected Model $changed;
-    protected Model $notChanged;
-
-    protected Model $removed;
-    protected Model $notRemoved;
-
-    protected Models $collection;
-    protected Models $empty;
-
-    protected Models $notifications;
-    protected Model $exception;
+    protected Models $models;
 
     public function __construct(Status $status, Model ...$models)
     {
         $this->status = $status;
-
-        $method = (string) $status;
-
-        $models = ($this->shouldBeModelsNotModel($status))
-            ? $this->modelsFromArray($models)
-            : $this->modelFromArray($models);
-
-        $this->$method = $models;
+        $this->models = $this->modelsFromArray($models);
     }
 
-    public function __call(string $name, $value)
+    public function status(): Status
     {
-        return @$this->{$name} ?? null;
+        return $this->status;
     }
 
-    private function shouldBeModelsNotModel(Status $status): bool
+    public function getIterator(): Iterator
     {
-        return in_array((string) $status, [Status::COLLECTION, Status::EMPTY, Status::NOTIFICATIONS]);
-    }
-
-    private function modelFromArray(array $models): Model
-    {
-        return array_shift($models);
+        return new IteratorIterator($this->models);
     }
 
     private function modelsFromArray(array $models): Models

@@ -16,15 +16,13 @@ class ResponsePayloadTest extends TestCase
             $model
         );
         $storedStatus = $payload->status();
-        $storedModel = $payload->{$status}();
 
         $this->assertTrue($statusInstance->equals($storedStatus));
+        $this->assertIsIterable($payload);
 
-        if (is_a($storedModel, Models::class)) {
-            $storedModel = $storedModel->pop();
+        foreach ($payload as $storedModel) {
+            $this->assertTrue($model->equals($storedModel));
         }
-
-        $this->assertTrue($model->equals($storedModel));
     }
 
     public function singleModelProvider(): array
@@ -40,7 +38,6 @@ class ResponsePayloadTest extends TestCase
             [Status::NOT_REMOVED, new DummyModel],
             [Status::COLLECTION, new DummyModel],
             [Status::EMPTY, new DummyModel],
-            [Status::EXCEPTION, new DummyModel],
         ];
     }
 }
