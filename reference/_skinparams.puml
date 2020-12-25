@@ -1,0 +1,39 @@
+@startuml Skinparams
+
+skinparam default {
+    FontName Source Code Pro
+    FontSize 14
+}
+skinparam Padding 3
+' skinparam linetype ortho
+
+
+skinparam class {
+    AttributeIconSize 14
+    BackgroundColor white
+    HeaderBackgroundColor #d8dee9
+    ArrowColor black
+    BorderColor black
+    FontStyle bold
+}
+skinparam package {
+    Style rectangle
+}
+skinparam object {
+    BackgroundColor #d8dee9
+    ArrowColor black
+    BorderColor black
+    FontStyle bold
+}
+
+
+skinparam stereotype {
+    CBackgroundColor white
+    EBackgroundColor white
+    IBackgroundColor white
+}
+
+hide interface circle
+hide interface attributes
+
+@enduml

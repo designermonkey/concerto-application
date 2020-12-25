@@ -1,0 +1,9 @@
+@startuml Ds
+
+namespace Ds {
+    interface Hashable <<interface>>
+        Hashable : hash(): mixed
+        Hashable : equals(obj): boolean
+}
+
+@enduml

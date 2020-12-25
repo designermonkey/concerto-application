@@ -1,62 +1,44 @@
-@startuml
+@startuml Boundary
 
-skinparam classBackgroundColor white
-skinparam classArrowColor black
-skinparam classBorderColor black
-skinparam packageStyle rectangle
+!include _skinparams.puml
+!include _ds.puml
 
+hide class circle
+hide class attributes
+hide enum circle
+hide enum methods
 
-package "Application Layer" <<Folder>>
-{
-    interface InputBoundary
-    abstract class Model
-    class Models
-    class Notification
-    class Notifications
-    interface OutputBoundary
-    class ResponsePayload
-    class Status
+class Model implements .Ds.Hashable
 
-    InputBoundary : void execute(Model, OutputBoundary)
-    OutputBoundary : void present(ResponsePayload)
+enum Status <<enumeration>>
+    Status : CREATED
+    Status : NOT_CREATED
+    Status : FOUND
+    Status : NOT_FOUND
+    Status : CHANGED
+    Status : NOT_CHANGED
+    Status : REMOVED
+    Status : NOT_REMOVED
+    Status : COLLECTION
+    Status : EMPTY
+    Status : NOTIFICATIONS
 
-    InputBoundary ..> Model
-    OutputBoundary ..> ResponsePayload
+class ResponsePayload <<iterator>>
+    ResponsePayload : status(): Status
 
-    ResponsePayload --* Model
-}
-
-package "Use Cases" <<Folder>>
-{
-    class MyUseCase
-    class MyRequestModel
-    class MyResponseModel
-
-    MyRequestModel ..|> Model
-    MyResponseModel ..|> Model
-
-    MyUseCase ..|> InputBoundary
-    MyUseCase ..> OutputBoundary
-    MyUseCase ..> ResponsePayload
-
-    MyUseCase ..> MyResponseModel : creates
-}
-
-package "Delivery Layer" <<Folder>>
-{
-    class MyController
-    class MyPresenter
-
-    MyController ..> InputBoundary
-    MyPresenter ..|> OutputBoundary
-
-    MyController ..> MyRequestModel : creates
-}
+    ResponsePayload ..> Status
+    ResponsePayload .left.> Model
 
 
-"Delivery Layer" -[hidden]right-> "Application Layer"
-"Application Layer" -[hidden]right-> "Use Cases"
+interface ResponseBoundary <<interface>>
+    ResponseBoundary : respond(ResponsePayload: payload): void
+    
+    ResponseBoundary ..> ResponsePayload
 
+interface RequestBoundary <<interface>>
+    RequestBoundary : execute(Model: requestModel, ResponseBoundary $boundary): void
 
+    RequestBoundary ..> Model
+    RequestBoundary ..> ResponseBoundary
 
 @enduml
