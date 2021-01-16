@@ -20,8 +20,8 @@ abstract class Model implements Hashable
     /**
      * @param Hashable $obj
      */
-    public function equals($object): bool
+    public function equals($obj): bool
     {
-        return get_called_class() === get_class($object) && $this->hash() === $object->hash();
+        return get_called_class() === get_class($obj) && $this->hash() === $obj->hash();
     }
 }

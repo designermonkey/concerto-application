@@ -9,6 +9,7 @@ hide enum circle
 hide enum methods
 
 class Model implements .Ds.Hashable
+hide Model methods
 
 enum Status <<enumeration>>
     Status : CREATED
@@ -36,7 +37,7 @@ interface ResponseBoundary <<interface>>
     ResponseBoundary ..> ResponsePayload
 
 interface RequestBoundary <<interface>>
-    RequestBoundary : execute(Model: requestModel, ResponseBoundary $boundary): void
+    RequestBoundary : execute(Model: requestModel, ResponseBoundary: boundary): void
 
     RequestBoundary ..> Model
     RequestBoundary ..> ResponseBoundary
