@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b468bfd8ae0787b43c82c8eb3f2a276",
+    "content-hash": "5af8f8e88bc5d4561c46820c74d48ea5",
     "packages": [
         {
             "name": "jorpo/enum",
@@ -18,7 +18,7 @@
                 "type": "zip",
                 "url": "https://satis.jorpo.co/dist/jorpo/enum/jorpo-enum-ffa27d6b8c21aa9f6ae7015096c7562db7a097e0-zip-8ebe8d.zip",
                 "reference": "ffa27d6b8c21aa9f6ae7015096c7562db7a097e0",
-                "shasum": "f1b0bd720125f63261c2e21c81d55d6e8ad5ef51"
+                "shasum": "b259b1fbf23c8074ba95416dedd8e6f0db4c1cc2"
             },
             "require": {
                 "php": "^7.4",
@@ -64,16 +64,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jorpo-co/object-access.git",
-                "reference": "5f04e153024a485af30ef493f612ec7dd3480bb0"
+                "reference": "8090d72075ac3cf621b10624cc4cf8c61ee595dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://satis.jorpo.co/dist/jorpo/object-access/jorpo-object-access-5f04e153024a485af30ef493f612ec7dd3480bb0-zip-be8e1e.zip",
-                "reference": "5f04e153024a485af30ef493f612ec7dd3480bb0",
-                "shasum": "c47a7fe22e01a635fa6fc0b4c1f830ce08812e15"
+                "url": "https://satis.jorpo.co/dist/jorpo/object-access/jorpo-object-access-8090d72075ac3cf621b10624cc4cf8c61ee595dd-zip-5716de.zip",
+                "reference": "8090d72075ac3cf621b10624cc4cf8c61ee595dd",
+                "shasum": "91c22a1ff5497937dfaf614e66a4f4fcba3e803f"
             },
             "require": {
-                "php": "^7.4"
+                "php": "^7.4 || ^8.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.0"
@@ -107,7 +107,7 @@
                 "source": "https://github.com/jorpo-co/object-access/tree/master",
                 "issues": "https://github.com/jorpo-co/object-access/issues"
             },
-            "time": "2020-08-01T13:49:07+00:00"
+            "time": "2021-01-17T13:45:31+00:00"
         },
         {
             "name": "php-ds/php-ds",
@@ -1005,16 +1005,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.5.0",
+            "version": "9.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "8e16c225d57c3d6808014df6b1dd7598d0a5bbbe"
+                "reference": "e7bdf4085de85a825f4424eae52c99a1cec2f360"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8e16c225d57c3d6808014df6b1dd7598d0a5bbbe",
-                "reference": "8e16c225d57c3d6808014df6b1dd7598d0a5bbbe",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e7bdf4085de85a825f4424eae52c99a1cec2f360",
+                "reference": "e7bdf4085de85a825f4424eae52c99a1cec2f360",
                 "shasum": ""
             },
             "require": {
@@ -1092,7 +1092,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.0"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.1"
             },
             "funding": [
                 {
@@ -1104,7 +1104,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-04T05:05:53+00:00"
+            "time": "2021-01-17T07:42:25+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -2072,16 +2072,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.20.0",
+            "version": "v1.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "f4ba089a5b6366e453971d3aad5fe8e897b37f41"
+                "reference": "c6c942b1ac76c82448322025e084cadc56048b4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/f4ba089a5b6366e453971d3aad5fe8e897b37f41",
-                "reference": "f4ba089a5b6366e453971d3aad5fe8e897b37f41",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/c6c942b1ac76c82448322025e084cadc56048b4e",
+                "reference": "c6c942b1ac76c82448322025e084cadc56048b4e",
                 "shasum": ""
             },
             "require": {
@@ -2093,7 +2093,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.20-dev"
+                    "dev-main": "1.22-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -2131,7 +2131,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.20.0"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.22.0"
             },
             "funding": [
                 {
@@ -2147,7 +2147,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-23T14:02:19+00:00"
+            "time": "2021-01-07T16:49:33+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -2262,7 +2262,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4"
+        "php": "^7.4 || ^8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"

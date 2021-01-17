@@ -21,5 +21,5 @@ class Status extends Enum
     public const COLLECTION = 'collection';
     public const EMPTY = 'empty';
 
-    public const NOTIFICATIONS = 'notifications';
+    public const ERRORS = 'errors';
 }

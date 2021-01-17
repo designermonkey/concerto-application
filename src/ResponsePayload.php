@@ -6,11 +6,11 @@ use Iterator;
 use IteratorAggregate;
 use IteratorIterator;
 use Jorpo\Concerto\Application\Status;
-use Jorpo\ObjectAccess\ImmutableObjectAccessTrait;
+use Jorpo\ObjectAccess\ImmutableObjectAccess;
 
 class ResponsePayload implements IteratorAggregate
 {
-    use ImmutableObjectAccessTrait;
+    use ImmutableObjectAccess;
     
     protected Status $status;
     protected Models $models;

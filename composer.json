@@ -13,10 +13,10 @@
         "bin-dir": "bin"
     },
     "require": {
-        "php": ">=7.4 ^8.0",
-        "php-ds/php-ds": "^1.2",
         "jorpo/enum": "@dev",
-        "jorpo/object-access": "@dev"
+        "jorpo/object-access": "@dev",
+        "php": "^7.4 || ^8.0",
+        "php-ds/php-ds": "^1.2"
     },
     "autoload": {
         "psr-4": {
