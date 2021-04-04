@@ -2,23 +2,25 @@
 
 namespace Jorpo\Concerto\Application;
 
-use Iterator;
 use IteratorAggregate;
-use IteratorIterator;
 use Jorpo\Concerto\Application\Status;
 use Jorpo\ObjectAccess\ImmutableObjectAccess;
+use Traversable;
 
+/**
+ * @template M of Model
+ */
 class ResponsePayload implements IteratorAggregate
 {
     use ImmutableObjectAccess;
-    
+
     protected Status $status;
     protected Models $models;
 
     public function __construct(Status $status, Model ...$models)
     {
         $this->status = $status;
-        $this->models = $this->modelsFromArray($models);
+        $this->models = new Models(...$models);
     }
 
     public function status(): Status
@@ -26,13 +28,8 @@ class ResponsePayload implements IteratorAggregate
         return $this->status;
     }
 
-    public function getIterator(): Iterator
+    public function getIterator(): Traversable
     {
-        return new IteratorIterator($this->models);
-    }
-
-    private function modelsFromArray(array $models): Models
-    {
-        return new Models(...$models);
+        return $this->models->getIterator();
     }
 }
