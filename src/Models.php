@@ -10,28 +10,35 @@ use Traversable;
 use UnderflowException;
 
 /**
- * @template M of Model
+ * @template TModel of Model
  */
 class Models implements IteratorAggregate, Countable
 {
     private Vector $models;
 
+    /**
+     * @param TModel ...$models
+     */
     public function __construct(Model ...$models)
     {
         $this->models = new Vector(...$models);
     }
 
+    /**
+     * @param TModel ...$models
+     */
     public function push(Model $model): void
     {
         $this->models->push($model);
     }
 
     /**
+     * @return TModel
      * @throws UnderflowException
      */
     public function pop(): Model
     {
-        /** @var Model */
+        /** @var TModel */
         return $this->models->pop();
     }
 

@@ -8,7 +8,7 @@ use Jorpo\ObjectAccess\ImmutableObjectAccess;
 use Traversable;
 
 /**
- * @template M of Model
+ * @template TModel of Model
  */
 class ResponsePayload implements IteratorAggregate
 {
@@ -17,6 +17,9 @@ class ResponsePayload implements IteratorAggregate
     protected Status $status;
     protected Models $models;
 
+    /**
+     * @param TModel ...$models
+     */
     public function __construct(Status $status, Model ...$models)
     {
         $this->status = $status;

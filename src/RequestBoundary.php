@@ -3,9 +3,12 @@
 namespace Jorpo\Concerto\Application;
 
 /**
- * @template M of Model
+ * @template TModel of Model
  */
 interface RequestBoundary
 {
+    /**
+     * @param TModel $requestModel
+     */
     public function execute(Model $requestModel, ResponseBoundary $boundary): void;
 }
