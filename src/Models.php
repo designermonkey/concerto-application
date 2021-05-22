@@ -34,6 +34,9 @@ class Models implements IteratorAggregate, Countable
         return $this->models->pop();
     }
 
+    /**
+     * @return Traversable<int, Model>
+     */
     public function getIterator(): Traversable
     {
         return new IteratorIterator($this->models);
