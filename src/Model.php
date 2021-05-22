@@ -3,6 +3,7 @@
 namespace Jorpo\Concerto\Application;
 
 use Ds\Hashable;
+use Jorpo\ObjectAccess\CallableObjectProperties;
 use Jorpo\ObjectAccess\ImmutableObjectAccess;
 use function get_called_class;
 use function get_class;
@@ -11,6 +12,7 @@ use function serialize;
 abstract class Model implements Hashable
 {
     use ImmutableObjectAccess;
+    use CallableObjectProperties;
 
     public function hash(): string
     {
